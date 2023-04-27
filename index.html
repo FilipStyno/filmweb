@@ -9,6 +9,7 @@
 
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/my.css" rel="stylesheet" >
 
 </head>
 
@@ -43,50 +44,73 @@
         <h1 class="text-center text-light">FilmWeb</h1>
     </header>
     <main>
-    <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
-            <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
-            <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-                <img src="https://external-preview.redd.it/dkUFXQPiTR_xmNdwVJuGXkn4x-fyJRi049cAs1-AjIY.jpg?width=640&crop=smart&auto=webp&s=994a0b83d5ecdfe853879459d9987dbaeae56179" class="w-100 d-block" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Donald Trump a Patrick Bateman</h3>
-                    <p>Muj nejoblibenejsi preziden s moji oblibenou postavou z america psycho</p>
+        <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselId" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <img src="https://picsum.photos/id/1/1200/300" class="w-100 d-block" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Title</h3>
+                        <p>Description</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://picsum.photos/id/3/1200/300" class="w-100 d-block" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Title</h3>
+                        <p>Description</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://picsum.photos/id/6/1200/300" class="w-100 d-block" alt="Third slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Title</h3>
+                        <p>Description</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://picsum.photos/id/8/1200/300" class="w-100 d-block" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Title</h3>
+                        <p>Description</p>
+                    </div>
                 </div>
             </div>
-            <div class="carousel-item">
-                <img src="https://hips.hearstapps.com/hmg-prod/images/former-president-of-the-united-states-barack-obama-is-seen-news-photo-1572040498.jpg" class="w-100 d-block" alt="Second slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Obama cool</h3>
-                    <p>Muj 2 nejoblibenejsi prezident</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="https://thehill.com/wp-content/uploads/sites/2/2021/08/bidenjoe_081021upi_lead.jpg?w=1280" class="w-100 d-block" alt="Third slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Biden Oil</h3>
-                    <p>Muj treti nejoblibenejsi prezident</p>
-                </div>
-            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
     </main>
     <footer>
         <p>&copy; 2023 - Filip Hřivňacký</p>
     </footer>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="js/bootstrap.bundle.min.js">
+    </script>
+    <script>
+        var myCarousel = document.getElementById('carouselId');
+
+
+        myCarousel.addEventListener('slide.bs.carousel', function () {
+            console.log('Změna obrázku');
+            let r = Math.floor(Math.random() * 256);
+            let g = Math.floor(Math.random() * 256);
+            let b = Math.floor(Math.random() * 256);
+            let color = `rgb(${r}, ${g}, ${b})`;
+            document.querySelector('body').style.backgroundColor = color;
+            document.querySelector('h1').style.setProperty("color", color, "important");
+
+        })
     </script>
 </body>
 
